@@ -11,12 +11,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/ayuhcl/java-app.git'
-            }
-        }
-
         stage('Build with Maven') {
             steps {
                 sh 'mvn clean package'
