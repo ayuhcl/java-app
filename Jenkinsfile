@@ -7,9 +7,18 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "lovidovi29/java-app"
+        IMAGE_NAME = 'java-poc-app'
     }
 
     stages {
+
+        
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/ayuhcl/java-app.git'
+            }
+        }
+
 
         stage('Build with Maven') {
             steps {
@@ -24,6 +33,15 @@ pipeline {
                 }
             }
         }
+        
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
 
         stage('Docker Build') {
             steps {
