@@ -16,7 +16,7 @@ public class demoapplication {
 
     public String home() {
 
-        return "Hello from Java + Jenkins + Maven ";
+        return "Hello from Java + Jenkins + Maven + Kubernetes";
 
     }
 
