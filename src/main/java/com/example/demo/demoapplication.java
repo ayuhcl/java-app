@@ -16,7 +16,7 @@ public class demoapplication {
 
     public String home() {
 
-        return "Hello from Java + Jenkins + Kubernetes";
+        return "Deployed via Jenkins + Argo CD GitOps";
 
     }
 
